@@ -14,7 +14,7 @@ end
 2. Ensure logger_loggly_backend is started before your application:
 ```elixir
 def application do
-  [applications: [:logger_loggly_backend]]
+  [applications: [:logger_loggly_backend, :httpoison]]
 end
 ```
 
