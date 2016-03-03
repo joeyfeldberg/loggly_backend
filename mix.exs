@@ -31,7 +31,7 @@ defmodule LoggerLogglyBackend.Mixfile do
       files: ["lib", "mix.exs", "README*", "LICENSE" ],
       maintainers: ["Joey Feldberg"],
       licenses: ["MIT"],
-      links: %{"Github": "https://github.com/joeyfeldberg/logger_loggly_backend"}
+      links: %{"Github": "https://github.com/joeyfeldberg/loggly_backend"}
     ]
   end
 end
