@@ -38,6 +38,7 @@ The configuration defaults to:
 ```elixir
 config :logger, :loggly,
   host: "http://logs-01.loggly.com",
+  timeout: 5000,
   type: :inputs,
   token: System.get_env("LOGGLY_TOKEN"), # so you can set the token as an environment variable which is recommended
   tags: [],
