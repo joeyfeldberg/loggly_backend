@@ -41,7 +41,7 @@ defmodule LoggerLogglyBackend do
 
   defp log_event(level, msg, ts, md, state) do
     output = format_event(level, msg, ts, md, state)
-    HTTPoison.post!(state.url, output, %{"content-type": "text/plain"}, stream_to: self)
+    HTTPoison.post(state.url, output, %{"content-type": "text/plain"}, timeout: state.timeout)
   end
 
   defp configure(name, opts) do
@@ -54,11 +54,12 @@ defmodule LoggerLogglyBackend do
     tags = Keyword.get(opts, :tags, [])
     token = Keyword.get(opts, :token, System.get_env("LOGGLY_TOKEN"))
     type = Keyword.get(opts, :type, :inputs)
+    timeout = Keyword.get(opts, :timeout, 5000)
     metadata = Keyword.get(opts, :metadata, [])
     host = Keyword.get(opts, :host, "http://logs-01.loggly.com")
 
     %{name: name, format: format,
       url: "#{host}/#{type}/#{token}/tag/#{Enum.join(tags, ",")}",
-      level: level, metadata: metadata, tags: tags}
+      level: level, metadata: metadata, tags: tags, timeout: timeout}
   end
 end
