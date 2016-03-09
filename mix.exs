@@ -17,7 +17,7 @@ defmodule LoggerLogglyBackend.Mixfile do
   end
 
   defp deps do
-    [{:httpoison, "~> 0.8.0"}]
+    [{:httpoison, "~> 0.8.1"}]
   end
 
   defp description do
