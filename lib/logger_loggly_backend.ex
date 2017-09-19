@@ -2,6 +2,7 @@ defmodule LoggerLogglyBackend do
   use GenEvent
 
   def init({__MODULE__, name}) do
+    {:ok, _} = Application.ensure_all_started(:logger_loggly_backend)
     {:ok, configure(name, [])}
   end
 
