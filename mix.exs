@@ -7,9 +7,9 @@ defmodule LoggerLogglyBackend.Mixfile do
      elixir: "~> 1.1",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps,
-     description: description,
-     package: package]
+     deps: deps(),
+     description: description(),
+     package: package()]
   end
 
   def application do
@@ -17,7 +17,7 @@ defmodule LoggerLogglyBackend.Mixfile do
   end
 
   defp deps do
-    [{:httpoison, "~> 0.8.1"}]
+    [{:httpoison, "~> 0.13"}]
   end
 
   defp description do
